@@ -3,6 +3,7 @@ package services.managing;
 import configuration.Configuration;
 import models.DataModel;
 import org.apache.log4j.Logger;
+import services.managing.tasks.TimedTask;
 import services.reading.ConcreteReader;
 
 import javax.annotation.PreDestroy;
@@ -19,9 +20,9 @@ public class ConcreteTaskManager implements TaskManager {
     private final Long delay = Configuration.get().getDelay();
 
     @Override
-    public void execute(Runnable task, DataModel model) {
+    public void execute(TimedTask task) {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-        Integer time = Integer.parseInt(model.getTime());
+        Long time = task.getTime();
 
         executor.scheduleAtFixedRate(task,delay,time, timeUnit);
         executors.add(executor);

@@ -10,7 +10,7 @@ public class CheckTimeFormatRule implements InputRule {
     public void validate(DataModel data) {
         String time = data.getTime();
         try {
-            Integer number = Integer.parseInt(time);
+            Long number = Long.parseLong(time);
             if (number <= minSleepTime) throw new NumberFormatException("Time value out of scope.");
 
         } catch (NumberFormatException e) {

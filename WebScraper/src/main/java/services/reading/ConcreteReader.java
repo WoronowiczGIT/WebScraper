@@ -24,13 +24,12 @@ public class ConcreteReader implements SiteReader {
         logger.info("Document fetched.");
 
         if (enableMultipleElements) {
-            result.addAll(fetchAll(doc));
-            logger.info("Single html element fetched.");
-        } else {
             result.add(fetchFirst(doc));
-            logger.info("Multiple html elements fetched.");
+        } else {
+            result.addAll(fetchAll(doc));
         }
 
+        logger.info("Html elements fetched.");
         return result;
     }
 
@@ -49,7 +48,8 @@ public class ConcreteReader implements SiteReader {
 
     private List<String> fetchAll(Document document) {
         Elements elements = document.select(htmlTag);
-        return elements.stream()
+        return elements
+                .stream()
                 .map(e -> e.text())
                 .collect(Collectors.toList());
     }

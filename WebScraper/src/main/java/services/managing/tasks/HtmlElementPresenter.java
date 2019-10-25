@@ -8,7 +8,7 @@ import services.reading.SiteReader;
 import java.io.IOException;
 import java.util.List;
 
-public class HtmlElementPresenter implements Runnable{
+public class HtmlElementPresenter implements TimedTask{
     private static final Logger logger = Logger.getLogger(HtmlElementPresenter.class.getName());
     private SiteReader reader;
     private Presenter presenter;
@@ -30,5 +30,10 @@ public class HtmlElementPresenter implements Runnable{
             logger.error("Failed to execute task.");
            System.exit(-1);
         }
+    }
+
+    @Override
+    public Long getTime(){
+        return Long.parseLong(model.getTime());
     }
 }

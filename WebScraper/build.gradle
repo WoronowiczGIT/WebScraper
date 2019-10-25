@@ -26,7 +26,11 @@ dependencies {
 
 jar {
     from {
+
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    into 'resources', {
+        from 'resources'
     }
     manifest {
         attributes(
