@@ -1,16 +1,15 @@
 import models.Data;
-import models.DataModel;
 import org.apache.log4j.Logger;
-import services.managing.ConcreteTaskManager;
-import services.managing.TaskManager;
-import services.managing.tasks.HtmlElementPresenter;
-import services.managing.tasks.TimedTask;
-import services.parsing.input.ConcreteDataModelParser;
-import services.parsing.input.DataModelParser;
-import services.presenting.ConsolePresenter;
-import services.reading.ConcreteReader;
-import services.validation.input.ConcreteInputModelValidator;
-import services.validation.input.InputModelValidator;
+import services.taskManagers.ConcreteTaskManager;
+import services.taskManagers.TaskManager;
+import services.taskManagers.tasks.HtmlElementPresenter;
+import services.taskManagers.tasks.TimedTask;
+import services.parsers.input.ConcreteDataModelParser;
+import services.parsers.input.DataModelParser;
+import services.presenters.ConsolePresenter;
+import services.readers.ConcreteReader;
+import services.validators.input.ConcreteInputModelValidator;
+import services.validators.input.InputModelValidator;
 import utilities.Utils;
 
 public class Main {

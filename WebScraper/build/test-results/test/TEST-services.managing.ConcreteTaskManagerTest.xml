@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="services.managing.ConcreteTaskManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-25T18:30:32" hostname="DESKTOP-S4CGSOE" time="1.086">
+  <properties/>
+  <testcase name="execute" classname="services.managing.ConcreteTaskManagerTest" time="1.086"/>
+  <system-out><![CDATA[2019-10-25 20:30:32 INFO   Configuration:53 - Configuration initialized
+2019-10-25 20:30:32 INFO   ConcreteTaskManager:27 - Starting task.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

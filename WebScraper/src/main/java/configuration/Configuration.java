@@ -33,17 +33,17 @@ public class Configuration {
 
         properties.load(new FileInputStream(path));
 
-        argumentCount = Integer.parseInt(properties.getProperty("services.parsing.input.argumentCount"));
-        urlIndex = Integer.parseInt(properties.getProperty("services.parsing.input.urlIndex"));
-        timeIndex = Integer.parseInt(properties.getProperty("services.parsing.input.timeIndex"));
-        defaultHttpEnabled = Boolean.valueOf(properties.getProperty("services.parsing.input.defaultHttpEnabled"));
-        minSleepTime = Integer.parseInt(properties.getProperty("services.validation.input.rules.checkTimeRule.minSleepTime"));
-        desiredProtocols = properties.getProperty("services.parsing.input.desiredProtocols").split(",");
-        defaultProtocol = properties.getProperty("services.parsing.input.defaultProtocol");
-        htmlElement = properties.getProperty("services.reading.concreteReader.htmlTag");
-        enableMultipleElements = Boolean.valueOf(properties.getProperty("services.reading.concreteReader.enableMultipleElements"));
-        timeUnit = TimeUnit.valueOf(properties.getProperty("services.managing.taskManager.timeUnit").toUpperCase());
-        delay = Long.parseLong(properties.getProperty("services.managing.taskManager.delay"));
+        argumentCount = Integer.parseInt(properties.getProperty("services.parsers.input.argumentCount"));
+        urlIndex = Integer.parseInt(properties.getProperty("services.parsers.input.urlIndex"));
+        timeIndex = Integer.parseInt(properties.getProperty("services.parsers.input.timeIndex"));
+        defaultHttpEnabled = Boolean.valueOf(properties.getProperty("services.parsers.input.defaultHttpEnabled"));
+        minSleepTime = Integer.parseInt(properties.getProperty("services.validators.input.rules.checkTimeRule.minSleepTime"));
+        desiredProtocols = properties.getProperty("services.parsers.input.desiredProtocols").split(",");
+        defaultProtocol = properties.getProperty("services.parsers.input.defaultProtocol");
+        htmlElement = properties.getProperty("services.readers.concreteReader.htmlTag");
+        enableMultipleElements = Boolean.valueOf(properties.getProperty("services.readers.concreteReader.enableMultipleElements"));
+        timeUnit = TimeUnit.valueOf(properties.getProperty("services.taskManagers.taskManager.timeUnit").toUpperCase());
+        delay = Long.parseLong(properties.getProperty("services.taskManagers.taskManager.delay"));
     }
 
     public static Configuration get() {
@@ -53,7 +53,7 @@ public class Configuration {
                 logger.info("Configuration initialized");
             }
         } catch (IOException | NumberFormatException e) {
-            logger.error("Configuration initialization failed");
+            logger.error("Configuration initialization failed: "+e);
             System.exit(-1);
         }
 
