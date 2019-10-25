@@ -1,19 +1,19 @@
 import models.DataModel;
+import services.managing.ConcreteTaskManager;
+import services.managing.TaskManager;
+import services.managing.tasks.HtmlElementPresenter;
 import services.parsing.input.ConcreteDataModelParser;
 import services.parsing.input.DataModelParser;
+import services.presenting.ConsolePresenter;
 import services.reading.ConcreteReader;
-import services.reading.SiteReader;
 import services.validation.input.ConcreteInputModelValidator;
 import services.validation.input.InputModelValidator;
 import utilities.Utils;
 
-import java.io.IOException;
-import java.util.List;
-
 public class Main {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         Utils.setShutDownHook();
 
         DataModelParser modelParser = new ConcreteDataModelParser();
@@ -25,22 +25,9 @@ public class Main {
             System.exit(-1);
         }
 
-        SiteReader reader = new ConcreteReader();
-        try {
-            List<String> title = reader.fetchElements(model);
-            for (String element: title) {
-                System.out.println(element);
-            }
-        } catch (IOException e) {
-            System.exit(-1);
-        }
+        Runnable task = new HtmlElementPresenter(new ConcreteReader(),new ConsolePresenter(),model);
+        TaskManager manager = new ConcreteTaskManager();
+        manager.execute(task,model);
 
-
-        while (true) {
-            Thread.sleep(1000);
-            System.out.println("ping");
-        }
     }
-
-
 }

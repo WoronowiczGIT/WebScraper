@@ -1,7 +1,6 @@
 package services.reading;
 
 import configuration.Configuration;
-import models.DataModel;
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,10 +17,9 @@ public class ConcreteReader implements SiteReader {
     private final Boolean enableMultipleElements = Configuration.get().getEnableMultipleElements();
 
     @Override
-    public List<String> fetchElements(DataModel model) throws IOException {
+    public List<String> fetchElements(String url) throws IOException {
         List<String> result = new ArrayList<>();
 
-        String url = model.getUrl();
         Document doc = fetchDocument(url);
         logger.info("Document fetched.");
 

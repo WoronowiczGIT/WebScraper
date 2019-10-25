@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class Configuration {
 
@@ -23,6 +24,8 @@ public class Configuration {
     private final String defaultProtocol;
     private final String htmlElement;
     private final Boolean enableMultipleElements;
+    private final Long delay;
+    private final TimeUnit timeUnit;
 
     private static final Logger logger = Logger.getLogger(Configuration.class.getName());
 
@@ -39,6 +42,8 @@ public class Configuration {
         defaultProtocol = properties.getProperty("services.parsing.input.defaultProtocol");
         htmlElement = properties.getProperty("services.reading.concreteReader.htmlTag");
         enableMultipleElements = Boolean.valueOf(properties.getProperty("services.reading.concreteReader.enableMultipleElements"));
+        timeUnit = TimeUnit.valueOf(properties.getProperty("services.managing.taskManager.timeUnit").toUpperCase());
+        delay = Long.parseLong(properties.getProperty("services.managing.taskManager.delay"));
     }
 
     public static Configuration get() {
@@ -89,5 +94,13 @@ public class Configuration {
 
     public Boolean getEnableMultipleElements() {
         return enableMultipleElements;
+    }
+
+    public Long getDelay() {
+        return delay;
+    }
+
+    public TimeUnit getTimeUnit() {
+        return timeUnit;
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface SiteReader {
 
-    List<String> fetchElements(DataModel model) throws IOException;
+    List<String> fetchElements(String url) throws IOException;
 }

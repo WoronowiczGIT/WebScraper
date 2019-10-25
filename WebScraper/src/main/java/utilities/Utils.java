@@ -9,7 +9,7 @@ public class Utils {
 
     public static void setShutDownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(() ->
-                System.out.println(EXIT_MSG)
+                System.out.print(EXIT_MSG)
         ));
         logger.info("Exit hook initialized.");
     }
