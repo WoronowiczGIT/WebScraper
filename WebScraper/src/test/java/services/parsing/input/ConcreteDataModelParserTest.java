@@ -20,7 +20,7 @@ public class ConcreteDataModelParserTest {
 
     @Test
     public void parseCorrect() {
-        String url = "url";
+        String url = "http://url";
         String time = "time";
         String[] goodArgs = {url,time};
         conditions.add(goodArgs);

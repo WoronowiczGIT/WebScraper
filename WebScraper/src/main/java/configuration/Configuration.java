@@ -1,5 +1,8 @@
 package configuration;
 
+
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -19,6 +22,8 @@ public class Configuration {
     private final String[] desiredProtocols;
     private final String defaultProtocol;
 
+    private static final Logger logger = Logger.getLogger(Configuration.class.getName());
+
     private Configuration() throws IOException, NumberFormatException {
 
         properties.load(new FileInputStream(path));
@@ -36,11 +41,13 @@ public class Configuration {
         try {
             if (instance == null) {
                 instance = new Configuration();
+                logger.info("Configuration initialized successful");
             }
         }catch (IOException | NumberFormatException e){
             e.printStackTrace();
             System.exit(-1);
         }
+
         return instance;
     }
 
