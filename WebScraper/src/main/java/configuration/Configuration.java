@@ -41,10 +41,10 @@ public class Configuration {
         try {
             if (instance == null) {
                 instance = new Configuration();
-                logger.info("Configuration initialized successful");
+                logger.info("Configuration initialized");
             }
         }catch (IOException | NumberFormatException e){
-            e.printStackTrace();
+            logger.error("Configuration initialization failed");
             System.exit(-1);
         }
 

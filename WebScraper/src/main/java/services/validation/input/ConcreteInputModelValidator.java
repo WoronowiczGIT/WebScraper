@@ -14,7 +14,7 @@ public class ConcreteInputModelValidator implements InputModelValidator {
     public Boolean isValid(DataModel model) {
         try {
             for (InputRule rule : InputRuleFactory.getAll()) {
-                logger.info(rule.getClass().getSimpleName()+" - applying rule.");
+                logger.info("Applying rule - "+rule.getClass().getSimpleName());
                 rule.validate(model);
 
             }
