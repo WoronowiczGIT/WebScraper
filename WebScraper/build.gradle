@@ -18,6 +18,6 @@ dependencies {
     compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
     // https://mvnrepository.com/artifact/log4j/log4j
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
-
-
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.12.1'
 }

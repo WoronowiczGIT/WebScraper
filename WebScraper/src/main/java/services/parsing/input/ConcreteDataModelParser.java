@@ -2,6 +2,7 @@ package services.parsing.input;
 
 import configuration.Configuration;
 import models.DataModel;
+import org.apache.log4j.Logger;
 
 public class ConcreteDataModelParser implements DataModelParser {
     private final int expectedArgumentsCount = Configuration.get().getArgumentCount();
@@ -12,8 +13,10 @@ public class ConcreteDataModelParser implements DataModelParser {
     private final String[] desiredProtocols = Configuration.get().getDesiredProtocols();
     private final String defaultProtocol = Configuration.get().getDefaultProtocol();
 
+    private static final Logger logger = Logger.getLogger(ConcreteDataModelParser.class.getName());
+
     @Override
-    public DataModel parse(String[] args) {
+    public DataModel parse(String[] args) throws IllegalArgumentException{
         if (args != null && args.length == expectedArgumentsCount) {
 
             String time = args[timeIndex];
@@ -27,6 +30,7 @@ public class ConcreteDataModelParser implements DataModelParser {
                     .setTime(time)
                     .build();
         } else {
+            logger.error("Failed to parse data model");
             throw new IllegalArgumentException("wrong number of arguments");
         }
     }

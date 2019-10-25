@@ -4,6 +4,7 @@ import models.DataModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import services.parsing.input.DataModelParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,18 +22,20 @@ public class ConcreteInputModelValidatorTest {
 
     @Test
     public void isValidTest(){
-        addModel("www.wp.pl","10",true);
+        addModel("http://www.wp.pl","10",true);
         addModel("www.wp.pl","-1",false);
 
 
         for(DataModel model : conditions.keySet()){
             Boolean actual = validator.isValid(model);
             Boolean expected = conditions.get(model);
-            System.out.println(model.getUrl()+" "+model.getTime());
+
+
             Assert.assertEquals(expected,actual);
         }
     }
     private void addModel(String url, String time, Boolean result){
+
         DataModel model = new DataModel.DataModelBuilder()
                 .setTime(time)
                 .setUrl(url)

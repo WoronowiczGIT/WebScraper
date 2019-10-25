@@ -1,5 +1,5 @@
-T2019-10-25 13:29:35 INFO   Configuration:44 - Configuration initialized successful
-failed to parse
-failed to parse
-failed to parse
-failed to parse
+T2019-10-25 13:42:32 INFO   Configuration:44 - Configuration initialized successful
+^2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckForNullsRule - rule applied
+_2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckUrlFormatRule - rule applied
+Z2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckTimeRule - rule applied
+^2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckForNullsRule - rule applied
