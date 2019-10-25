@@ -16,7 +16,7 @@ public class ConcreteDataModelParser implements DataModelParser {
     private static final Logger logger = Logger.getLogger(ConcreteDataModelParser.class.getName());
 
     @Override
-    public DataModel parse(String[] args) throws IllegalArgumentException{
+    public DataModel parse(String[] args){
         if (args != null && args.length == expectedArgumentsCount) {
 
             String time = args[timeIndex];

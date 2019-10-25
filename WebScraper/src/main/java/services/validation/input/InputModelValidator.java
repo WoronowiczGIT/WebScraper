@@ -4,5 +4,5 @@ import models.DataModel;
 
 public interface InputModelValidator {
 
-    Boolean isValid(DataModel model);
+    void validate(DataModel model);
 }

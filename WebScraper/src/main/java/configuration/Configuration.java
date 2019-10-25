@@ -12,6 +12,7 @@ public class Configuration {
 
     private static final Properties properties = new Properties();
     private static final String path = ".\\src\\main\\resources\\application.properties";
+//    private static final String path = "application.properties";
 
     private static Configuration instance;
 

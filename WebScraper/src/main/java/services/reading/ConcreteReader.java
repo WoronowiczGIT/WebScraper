@@ -25,10 +25,10 @@ public class ConcreteReader implements SiteReader {
 
         if (enableMultipleElements) {
             result.addAll(fetchAll(doc));
-            logger.info("Single element fetched.");
+            logger.info("Single html element fetched.");
         } else {
             result.add(fetchFirst(doc));
-            logger.info("Multiple elements fetched.");
+            logger.info("Multiple html elements fetched.");
         }
 
         return result;
