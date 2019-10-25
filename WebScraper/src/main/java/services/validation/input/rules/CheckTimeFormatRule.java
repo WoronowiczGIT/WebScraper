@@ -3,7 +3,7 @@ package services.validation.input.rules;
 import configuration.Configuration;
 import models.DataModel;
 
-public class CheckTimeRule implements InputRule {
+public class CheckTimeFormatRule implements InputRule {
     private final Integer minSleepTime = Configuration.get().getMinSleepTime();
 
     @Override

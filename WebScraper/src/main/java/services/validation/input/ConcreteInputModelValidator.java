@@ -1,6 +1,5 @@
 package services.validation.input;
 
-import configuration.Configuration;
 import models.DataModel;
 import org.apache.log4j.Logger;
 import services.validation.input.rules.InputRule;

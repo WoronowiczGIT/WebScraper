@@ -3,8 +3,9 @@ package services.reading;
 import models.DataModel;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface SiteReader {
 
-    String readTitle(DataModel model) throws IOException;
+    List<String> fetchElements(DataModel model) throws IOException;
 }

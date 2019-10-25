@@ -21,6 +21,8 @@ public class Configuration {
     private final Integer minSleepTime;
     private final String[] desiredProtocols;
     private final String defaultProtocol;
+    private final String htmlElement;
+    private final Boolean enableMultipleElements;
 
     private static final Logger logger = Logger.getLogger(Configuration.class.getName());
 
@@ -32,18 +34,20 @@ public class Configuration {
         urlIndex = Integer.parseInt(properties.getProperty("services.parsing.input.urlIndex"));
         timeIndex = Integer.parseInt(properties.getProperty("services.parsing.input.timeIndex"));
         defaultHttpEnabled = Boolean.valueOf(properties.getProperty("services.parsing.input.defaultHttpEnabled"));
-        minSleepTime = Integer.parseInt(properties.getProperty("services.validation.input.rules.CheckTimeRule.minSleepTime"));
+        minSleepTime = Integer.parseInt(properties.getProperty("services.validation.input.rules.checkTimeRule.minSleepTime"));
         desiredProtocols = properties.getProperty("services.parsing.input.desiredProtocols").split(",");
         defaultProtocol = properties.getProperty("services.parsing.input.defaultProtocol");
+        htmlElement = properties.getProperty("services.reading.concreteReader.htmlTag");
+        enableMultipleElements = Boolean.valueOf(properties.getProperty("services.reading.concreteReader.enableMultipleElements"));
     }
 
-    public static Configuration get(){
+    public static Configuration get() {
         try {
             if (instance == null) {
                 instance = new Configuration();
                 logger.info("Configuration initialized");
             }
-        }catch (IOException | NumberFormatException e){
+        } catch (IOException | NumberFormatException e) {
             logger.error("Configuration initialization failed");
             System.exit(-1);
         }
@@ -77,5 +81,13 @@ public class Configuration {
 
     public String getDefaultProtocol() {
         return defaultProtocol;
+    }
+
+    public String getHtmlElement() {
+        return htmlElement;
+    }
+
+    public Boolean getEnableMultipleElements() {
+        return enableMultipleElements;
     }
 }

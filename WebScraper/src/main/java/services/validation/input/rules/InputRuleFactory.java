@@ -9,7 +9,7 @@ public class InputRuleFactory {
     public static List<InputRule> getAll() {
         rules.add(new CheckForNullsRule());
         rules.add(new CheckUrlFormatRule());
-        rules.add(new CheckTimeRule());
+        rules.add(new CheckTimeFormatRule());
         return rules;
     }
 }

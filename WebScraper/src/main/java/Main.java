@@ -1,13 +1,14 @@
 import models.DataModel;
 import services.parsing.input.ConcreteDataModelParser;
 import services.parsing.input.DataModelParser;
-import services.reading.Reader;
+import services.reading.ConcreteReader;
 import services.reading.SiteReader;
 import services.validation.input.ConcreteInputModelValidator;
 import services.validation.input.InputModelValidator;
 import utilities.Utils;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
 
@@ -24,10 +25,12 @@ public class Main {
             System.exit(-1);
         }
 
-        SiteReader reader = new Reader();
+        SiteReader reader = new ConcreteReader();
         try {
-            String title = reader.readTitle(model);
-            System.out.println(title);
+            List<String> title = reader.fetchElements(model);
+            for (String element: title) {
+                System.out.println(element);
+            }
         } catch (IOException e) {
             System.exit(-1);
         }

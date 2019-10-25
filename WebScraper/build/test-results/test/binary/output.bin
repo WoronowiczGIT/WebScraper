@@ -1,5 +1,3 @@
-T2019-10-25 13:42:32 INFO   Configuration:44 - Configuration initialized successful
-^2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckForNullsRule - rule applied
-_2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckUrlFormatRule - rule applied
-Z2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckTimeRule - rule applied
-^2019-10-25 13:42:32 INFO   ConcreteInputModelValidator:18 - CheckForNullsRule - rule applied
+I2019-10-25 15:12:26 INFO   Configuration:46 - Configuration initialized
+H2019-10-25 15:12:27 INFO   ConcreteReader:21 - Document Title fetched.
+<title is Wirtualna Polska - Wszystko co ważne - www.wp.pl
