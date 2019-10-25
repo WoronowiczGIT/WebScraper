@@ -1,6 +1,6 @@
 package services.managing.tasks;
 
-import models.DataModel;
+import models.Data;
 import org.apache.log4j.Logger;
 import services.presenting.Presenter;
 import services.reading.SiteReader;
@@ -8,13 +8,13 @@ import services.reading.SiteReader;
 import java.io.IOException;
 import java.util.List;
 
-public class HtmlElementPresenter implements TimedTask{
+public class HtmlElementPresenter implements TimedTask {
     private static final Logger logger = Logger.getLogger(HtmlElementPresenter.class.getName());
     private SiteReader reader;
     private Presenter presenter;
-    private DataModel model;
+    private Data model;
 
-    public HtmlElementPresenter(SiteReader reader, Presenter presenter, DataModel model){
+    public HtmlElementPresenter(SiteReader reader, Presenter presenter, Data model) {
         this.reader = reader;
         this.presenter = presenter;
         this.model = model;
@@ -28,12 +28,12 @@ public class HtmlElementPresenter implements TimedTask{
             presenter.present(elements);
         } catch (IOException e) {
             logger.error("Failed to execute task.");
-           System.exit(-1);
+            System.exit(-1);
         }
     }
 
     @Override
-    public Long getTime(){
+    public Long getTime() {
         return Long.parseLong(model.getTime());
     }
 }

@@ -1,6 +1,5 @@
 package services.managing;
 
-import models.DataModel;
 import services.managing.tasks.TimedTask;
 
 public interface TaskManager {

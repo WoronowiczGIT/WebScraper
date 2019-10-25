@@ -1,3 +1,4 @@
+import models.Data;
 import models.DataModel;
 import org.apache.log4j.Logger;
 import services.managing.ConcreteTaskManager;
@@ -21,7 +22,7 @@ public class Main {
         DataModelParser modelParser = new ConcreteDataModelParser();
         InputModelValidator inputModelValidator = new ConcreteInputModelValidator();
 
-        DataModel model = null;
+        Data model = null;
 
         try {
             model = modelParser.parse(args);

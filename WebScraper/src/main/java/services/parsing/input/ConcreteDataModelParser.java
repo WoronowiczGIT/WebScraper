@@ -22,7 +22,7 @@ public class ConcreteDataModelParser implements DataModelParser {
             String time = args[timeIndex];
             String url = args[urlIndex];
             if (defaultHttpEnabled) {
-                url = setProtocol(url);
+                url = setDefaultProtocol(url);
             }
 
             return new DataModel.DataModelBuilder()
@@ -35,7 +35,7 @@ public class ConcreteDataModelParser implements DataModelParser {
         }
     }
 
-    private String setProtocol(String url) {
+    private String setDefaultProtocol(String url) {
 
         for (String protocol : desiredProtocols) {
             if (url.toLowerCase()

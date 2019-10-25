@@ -1,8 +1,8 @@
 package services.validation.input.rules;
 
-import models.DataModel;
+import models.Data;
 
 public interface InputRule {
 
-    void validate(DataModel data);
+    void validate(Data data);
 }

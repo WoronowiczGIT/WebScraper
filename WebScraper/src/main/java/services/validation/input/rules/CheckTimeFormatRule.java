@@ -1,13 +1,13 @@
 package services.validation.input.rules;
 
 import configuration.Configuration;
-import models.DataModel;
+import models.Data;
 
 public class CheckTimeFormatRule implements InputRule {
     private final Integer minSleepTime = Configuration.get().getMinSleepTime();
 
     @Override
-    public void validate(DataModel data) {
+    public void validate(Data data) {
         String time = data.getTime();
         try {
             Long number = Long.parseLong(time);

@@ -1,10 +1,12 @@
 package services.reading;
 
+import models.Data;
 import models.DataModel;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ConcreteReaderTest {
     private SiteReader reader;
@@ -16,13 +18,9 @@ public class ConcreteReaderTest {
 
     @Test
     public void readTitle() throws IOException {
+        String url ="http://www.wp.pl";
 
-        DataModel model = new DataModel.DataModelBuilder()
-                .setUrl("http://www.wp.pl")
-                .setTime("500")
-                .build();
-
-        String title = reader.fetchElements(model);
-        System.out.println("title is " + title);
+        List<String> title = reader.fetchElements(url);
+        System.out.println("title is " + title.get(0));
     }
 }

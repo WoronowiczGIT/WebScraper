@@ -1,6 +1,6 @@
 package models;
 
-public class DataModel {
+public class DataModel implements Data{
     private final String url;
     private final String time;
 

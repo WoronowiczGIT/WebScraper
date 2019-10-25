@@ -1,8 +1,8 @@
 package services.validation.input;
 
-import models.DataModel;
+import models.Data;
 
 public interface InputModelValidator {
 
-    void validate(DataModel model);
+    void validate(Data model);
 }

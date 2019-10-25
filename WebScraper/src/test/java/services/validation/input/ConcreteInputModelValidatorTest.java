@@ -1,5 +1,6 @@
 package services.validation.input;
 
+import models.Data;
 import models.DataModel;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,12 +27,13 @@ public class ConcreteInputModelValidatorTest {
         addModel("www.wp.pl","-1",false);
 
 
-        for(DataModel model : conditions.keySet()){
-            Boolean actual = validator.isValid(model);
-            Boolean expected = conditions.get(model);
-
-
-            Assert.assertEquals(expected,actual);
+        for(Data model : conditions.keySet()){
+            try{
+                validator.validate(model);
+                Assert.assertTrue(conditions.get(model));
+            }catch (IllegalArgumentException e){
+                Assert.assertFalse(conditions.get(model));
+            }
         }
     }
     private void addModel(String url, String time, Boolean result){

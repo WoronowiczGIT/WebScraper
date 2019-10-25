@@ -1,10 +1,8 @@
 package services.managing;
 
 import configuration.Configuration;
-import models.DataModel;
 import org.apache.log4j.Logger;
 import services.managing.tasks.TimedTask;
-import services.reading.ConcreteReader;
 
 import javax.annotation.PreDestroy;
 import java.util.HashSet;
